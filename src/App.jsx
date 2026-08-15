@@ -3,6 +3,7 @@ import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
 import Hero from "./components/Hero.jsx";
 import Nav from "./components/Nav.jsx";
+import Projects from "./components/Projects.jsx";
 import SocialRail from './components/SocialRail.jsx';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <Nav activeSection="about" sectionIds={["about","skills","projects","resume","contact"]} />
       <About />
       <Skills />
+      <Projects />
     </main>
   );
 }
