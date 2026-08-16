@@ -3,7 +3,7 @@ import { skills } from "../data/skills.js";
 export default function Skills() {
   return (
     <section id="skills" className="scroll-mt-(--nav-h)">
-      <div className="mx-auto w-full max-w-4xl px-6 py-12">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12">
         <h2 className="font-mono text-2xl font-semibold text-text">Skills</h2>
         <div className="mt-6 space-y-6">
           {Object.entries(skills).map(([key, group]) => (

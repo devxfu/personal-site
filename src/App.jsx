@@ -8,7 +8,7 @@ import SocialRail from './components/SocialRail.jsx';
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-base font-sans text-text">
+    <main className="min-h-screen bg-base font-sans text-text lg:pr-20">
       <Hero />
       <SocialRail />
       <Nav activeSection="about" sectionIds={["about","skills","projects","resume","contact"]} />

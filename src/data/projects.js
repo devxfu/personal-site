@@ -9,7 +9,7 @@ export const projects = [
   {
      id: 'Personal-Website',
      title: 'Personal Website (This Site!)',
-     description: 'A portfolio website built w/ Vite+React+Tailwind Css',
+     description: 'A portfolio website built w/ Vite+React+Tailwind CSS',
      tags: ['React', 'Vite', 'Tailwind CSS', 'Frontend'],
      links: { repo: 'https://github.com/devxfu/personal-site', live: 'https://alexfu.net' },
    },
