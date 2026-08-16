@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <section id="about" className="scroll-mt-(--nav-h)">
-      <div className="mx-auto w-full max-w-4xl px-6 py-12">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12">
         <h2 className="font-mono text-2xl font-semibold text-text mb-6">About</h2>
         
         <div className="flex flex-col md:flex-row items-stretch gap-8"> 
