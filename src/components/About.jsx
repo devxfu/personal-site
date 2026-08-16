@@ -15,15 +15,15 @@ export default function About() {
             />
           </div>
            
-          <div className="flex-1 flex flex-col justify-center gap-4 leading-relaxed text-subtext0 mt-6">
+          <div className="flex-1 flex flex-col justify-center gap-4 leading-relaxed text-text">
             <p>
-              <strong><em>Hi, I'm Alex.</em></strong> I love exploring our world, whether through Physics, reading articles, or simply sight-seeing during morning jogs. 
+              <strong><em><span className="text-accent">Hi, I'm Alex.</span></em></strong> I love exploring our world, whether through Physics, reading articles, or simply sight-seeing during morning jogs. 
             </p>
             <p>
               In my free time, I like to play violin and piano, mess around on the computer, and generally learn new games and skills (such as Poker!).
             </p>
             <p>
-              <strong>Please</strong> don't hesitate to reach out through any of my contact methods!
+              <strong><span className="text-accent">Please</span></strong> don't hesitate to reach out through any of my contact methods!
             </p>
           </div>
           
