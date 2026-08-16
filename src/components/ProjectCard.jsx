@@ -30,7 +30,7 @@ export default function ProjectCard({ project }) {
           href={project.links.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text"
+          className="rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
         >
           Repo
         </a>
@@ -39,7 +39,7 @@ export default function ProjectCard({ project }) {
             href={project.links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text"
+            className="rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text  focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
           >
             Live
           </a>
