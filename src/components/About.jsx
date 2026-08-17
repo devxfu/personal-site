@@ -9,7 +9,7 @@ export default function About() {
          
           <div className="w-full md:w-1/3 shrink-0">
             <img 
-              src="/portrait.jpeg" 
+              src="/portrait.webp" 
               alt="A portrait picture of Alex Fu" 
               className="w-full h-full object-cover rounded-xl shadow-md"
             />
