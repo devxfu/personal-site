@@ -14,8 +14,9 @@ export default function App() {
   const { activeSection, sectionIds } = useActiveSection();
 
   return (
-    <main className="min-h-screen bg-base font-sans text-text md:pr-20">
+    <main className="min-h-screen bg-base font-sans text-text">
       <Nav activeSection={activeSection} sectionIds={sectionIds} /> 
+     <div className="mx-auto w-full md:max-w-[min(72rem,calc(100vw-7.5rem))]">
       <Hero />
       <SocialRail />
       <About />
@@ -23,6 +24,7 @@ export default function App() {
       <Projects />
       <Resume />
       <Contact />
+      </div>
       <Footer />
     </main>
   );
