@@ -15,7 +15,7 @@ export default function Contact() {
           >
             Say Hello
           </a>
-          <div className="flex items-center gap-4">
+          <div data-socials className="flex items-center gap-4">
             {socials.map((s) => (
               <SocialLink key={s.id} social={s} />
             ))}

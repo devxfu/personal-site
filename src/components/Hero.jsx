@@ -25,7 +25,7 @@ export default function Hero() {
         </svg>
         New Haven, CT 
       </p>
-      <div className="flex items-center gap-1 mb-8">
+      <div data-socials className="flex items-center gap-1 mb-8">
         {socials.map((s, i) => (
           <React.Fragment key={s.id}> 
               <SocialLink key={s.id} social={s} className="w-4 h-4" />
