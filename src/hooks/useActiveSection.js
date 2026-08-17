@@ -1,43 +1,48 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function useActiveSection() {
   const [activeSection, setActiveSection] = useState(null);
   const sectionIdsRef = useRef([]);
-  const ratios = useRef(new Map());
 
   useEffect(() => {
-    const main = document.querySelector("main");
-    if (!main) return;
+    const sections = Array.from(document.querySelectorAll("main [id]"));
+    sectionIdsRef.current = sections.map((s) => s.id);
+    if (sections.length === 0) return;
 
-    const ids = Array.from(main.querySelectorAll("[id]")).map(
-      (el) => el.id
-    );
-    sectionIdsRef.current = ids;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      // Probe point: 25% down the viewport. A section is "active" when its
+      // top has passed above this line.
+      const probe = window.scrollY + window.innerHeight * 0.25;
+      let current = sections[0].id;
+      for (const s of sections) {
+        if (s.offsetTop <= probe) current = s.id;
+      }
+      // Bottom of page: force the last section (Contact) active.
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2
+      ) {
+        current = sections[sections.length - 1].id;
+      }
+      setActiveSection(current);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          ratios.current.set(entry.target.id, entry.intersectionRatio);
-        }
-        let best = null;
-        let bestRatio = 0;
-        for (const [id, ratio] of ratios.current) {
-          if (ratio > bestRatio) {
-            best = id;
-            bestRatio = ratio;
-          }
-        }
-        if (best) setActiveSection(best);
-      },
-      { threshold: [0.1, 0.25, 0.5, 0.75, 1.0] }
-    );
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
 
-    for (const id of ids) {
-      const el = main.querySelector(`#${CSS.escape(id)}`);
-      if (el) observer.observe(el);
-    }
-
-    return () => observer.disconnect();
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return { activeSection, sectionIds: sectionIdsRef.current };
