@@ -76,3 +76,24 @@
 html {
   scroll-margin-top: var(--nav-h);
 }
+
+.timeline-scroll {
+  scrollbar-width: none;
+}
+.timeline-scroll::-webkit-scrollbar {
+  display: none;
+}
+.timeline-scroll:hover,
+.timeline-scroll:focus-visible {
+  scrollbar-width: thin;
+}
+.timeline-scroll:hover::-webkit-scrollbar,
+.timeline-scroll:focus-visible::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+}
+.timeline-scroll:hover::-webkit-scrollbar-thumb,
+.timeline-scroll:focus-visible::-webkit-scrollbar-thumb {
+  background: var(--ctp-surface2);
+  border-radius: 3px;
+}
