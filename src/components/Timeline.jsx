@@ -22,6 +22,8 @@ function durationLabel(startIso, endIso) {
 const TYPE_STYLES = {
   work: "border-green text-green",
   education: "border-blue/40 text-blue",
+  volunteer: "border-red/40 text-red",
+  fellowship: "border-peach/40 text-peach",
 };
 const FALLBACK_TYPE_STYLE = "border-surface1 text-subtext0";
 
