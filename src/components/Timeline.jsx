@@ -14,7 +14,7 @@ function durationLabel(startIso, endIso) {
   const end = endIso ? new Date(endIso + "T00:00:00") : now;
   let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
   if (end.getDate() < start.getDate()) months -= 1;
-  if (months < 0) return "";
+  if (months < 0) return "<1mo";
   if (months === 0) return "<1mo";
   const years = Math.floor(months / 12);
   const rem = months % 12;
