@@ -27,7 +27,7 @@ const TYPE_STYLES = {
 };
 const FALLBACK_TYPE_STYLE = "border-surface1 text-subtext0";
 
-const sorted = [...timeline].sort((a, b) => (a.start < b.start ? 1 : a.start > b.start ? -1 : 0));
+const sorted = [...timeline].filter(Boolean).sort((a, b) => (a.start < b.start ? 1 : a.start > b.start ? -1 : 0));
 export default function Timeline() {
   return (
     <ul className="relative flex-1 flex flex-col">
