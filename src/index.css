@@ -30,18 +30,18 @@
   --ctp-surface1: #bcc0cc;
   --ctp-surface2: #acb0be;
   --ctp-overlay0: #9ca0b0;
-  --ctp-overlay1: #8c8fa1;
+  --ctp-overlay1:#8c8fa1 ;
   --ctp-overlay2: #7c7f93;
   --ctp-text: #4c4f69;
-  --ctp-subtext0: #6c6f85;
+  --ctp-subtext0: #65687d;
   --ctp-subtext1: #5c5f77;
-  --ctp-mauve: #8839ef;
-  --ctp-blue: #1e66f5;
-  --ctp-green: #40a02b;
-  --ctp-red: #d20f39;
-  --ctp-yellow: #df8e1d;
-  --ctp-peach: #fe640b;
-  --ctp-accent: #ef9f76 
+  --ctp-mauve: #8737ef;
+  --ctp-blue: #0e5bf4;
+  --ctp-green: #307820;
+  --ctp-red: #d00f39;
+  --ctp-yellow: #935d13;
+  --ctp-peach: #b74301;
+  --ctp-accent: #c95540;
 }
 
 @theme {
@@ -67,6 +67,16 @@
 
  --font-sans: "SF Mono Nerd Font", "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; 
  --font-mono: "SF Mono Nerd Font", "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; 
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 :root {
