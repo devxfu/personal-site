@@ -1,7 +1,7 @@
 export const skills = {
   Languages: {
     name: 'Languages',
-    items: ['Python', 'Java', 'R', 'HTML', 'JavaScript'],
+    items: ['Python', 'Java', 'R', 'HTML', 'JS'],
   },
   Frameworks: {
     name: 'Frameworks',

@@ -12,7 +12,7 @@ export default function Hero() {
         Alex Fu
       </h1>
       <p className="text-subtext0 text-lg mb-2">
-        Math & Phys @ Yale | 'CO 2030
+        Math & Phys @ Yale | CO 2030
       </p>
       <p className="text-subtext0 text-sm mb-6 flex items-center gap-1.5">
        <svg 
