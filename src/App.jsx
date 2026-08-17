@@ -14,7 +14,7 @@ export default function App() {
   const { activeSection, sectionIds } = useActiveSection();
 
   return (
-    <main className="min-h-screen bg-base font-sans text-text lg:pr-20">
+    <main className="min-h-screen bg-base font-sans text-text md:pr-20">
       <Nav activeSection={activeSection} sectionIds={sectionIds} /> 
       <Hero />
       <SocialRail />
