@@ -61,7 +61,7 @@ export default function Timeline() {
         >
           <ul className="relative flex flex-col">
             {sorted.length >= 2 && (
-              <span aria-hidden="true" className="absolute left-0.5 top-1.5 bottom-1 w-1 bg-surface1" />
+              <span aria-hidden="true" className="absolute left-0.5 top-5.5 bottom-1 w-1 bg-surface1" />
             )}
             {sorted.map((entry, i) => {
               const ongoing = !entry.end;
@@ -79,7 +79,7 @@ export default function Timeline() {
                     }
                   />
                   {showAccentLine && (
-                    <span aria-hidden="true" className="absolute left-0.5 top-1.5 -bottom-5.5 w-1 bg-accent" />
+                    <span aria-hidden="true" className="absolute left-0.5 top-5.5 -bottom-5.5 w-1 bg-accent" />
                   )}
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
