@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <main className="min-h-screen bg-base font-sans text-text lg:pr-20">
-      <Nav activeSection={activeSection} sectionIds={sectionIds} />
+      <Nav activeSection={activeSection} sectionIds={sectionIds} /> 
       <Hero />
       <SocialRail />
       <About />
