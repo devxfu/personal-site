@@ -7,7 +7,7 @@ export default function Skills() {
         <h2 className="font-mono text-2xl font-semibold text-text">Skills</h2>
         <div className="mt-6 space-y-6">
           {Object.entries(skills).map(([key, group]) => (
-            <div key={key} className="flex flex-col items-center gap-2 sm:mx-auto sm:flex-row sm:max-w-3xl sm:items-start sm:gap-4 md:translate-x-35">
+            <div key={key} className="flex flex-col items-center gap-2 sm:mx-auto sm:flex-row sm:max-w-3xl sm:items-start sm:gap-4 md:translate-x-45">
               <h3 className="font-mono text-sm text-subtext1 sm:w-24 sm:shrink-0">{group.name}</h3>
               <ul className="flex flex-wrap gap-2 sm:flex-1">
                 {group.items.map((item) => (

@@ -11,15 +11,13 @@ export default function useActiveSection() {
 
     let ticking = false;
     const update = () => {
-      ticking = false;
-      // Probe point: 25% down the viewport. A section is "active" when its
-      // top has passed above this line.
+      ticking = false; 
       const probe = window.scrollY + window.innerHeight * 0.25;
       let current = sections[0].id;
       for (const s of sections) {
         if (s.offsetTop <= probe) current = s.id;
       }
-      // Bottom of page: force the last section (Contact) active.
+      // page bottom case 
       if (
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 2
