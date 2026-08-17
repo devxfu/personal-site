@@ -15,7 +15,7 @@ export default function Hero() {
         Math & Phys @ Yale | CO 2030
       </p>
       <p className="text-subtext0 text-sm mb-6 flex items-center gap-1.5">
-       <svg 
+      <svg aria-hidden="true"
           viewBox="0 0 24 24" 
           width="16" 
           height="16" 

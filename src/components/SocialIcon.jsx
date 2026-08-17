@@ -15,6 +15,7 @@ function SocialIcon({ id, className }) {
   };
   return (
     <svg
+      aria-hidden="true"
       viewBox={viewboxes[id]}
       width="16"
       height="16"
