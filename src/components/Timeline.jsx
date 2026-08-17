@@ -19,6 +19,12 @@ function durationLabel(startIso, endIso) {
   return years > 0 ? `${years}y${rem ? ` ${rem}mo` : ""}` : `${rem}mo`;
 }
 
+const TYPE_STYLES = {
+  work: "border-green text-green",
+  education: "border-blue/40 text-blue",
+};
+const FALLBACK_TYPE_STYLE = "border-surface1 text-subtext0";
+
 const sorted = [...timeline].sort((a, b) => (a.start < b.start ? 1 : a.start > b.start ? -1 : 0));
 export default function Timeline() {
   return (
@@ -27,15 +33,16 @@ export default function Timeline() {
         <span aria-hidden="true" className="absolute left-0.5 top-1.5 bottom-1 w-1 bg-surface1" />
       )}
       {sorted.map((entry, i) => {
+        const ongoing = !entry.end;
         const next = sorted[i + 1];
-        const showAccentLine = entry.end === null && next?.end === null;
+        const showAccentLine = next != null && ongoing && !next.end;
         return (
           <li key={entry.id} className="relative flex gap-4 py-3">
             <span
               aria-hidden="true"
               className={
                 "relative z-10 mt-1.5 h-2 w-2 shrink-0 rounded-full " +
-                (entry.end === null
+                (ongoing
                   ? "bg-accent ring-4 ring-accent/25 shadow-[0_0_6px_1px] shadow-accent/60"
                   : "border-2 border-overlay1 bg-base")
               }
@@ -46,19 +53,21 @@ export default function Timeline() {
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="font-mono text-sm font-semibold text-text">{entry.title}</span>
-                <span
-                  className={
-                    "rounded border px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wide " +
-                    (entry.type === "work" ? "border-green text-green" : "border-blue/40 text-blue")
-                  }
-                >
-                  {entry.type}
-                </span>
+                {entry.type && (
+                  <span
+                    className={
+                      "rounded border px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wide " +
+                      (TYPE_STYLES[entry.type] ?? FALLBACK_TYPE_STYLE)
+                    }
+                  >
+                    {entry.type}
+                  </span>
+                )}
               </div>
               <p className="font-mono text-xs text-subtext1">
                 {entry.org} · {formatMonthYear(entry.start)} –{" "}
-                {entry.end === null ? "Present" : formatMonthYear(entry.end)}
-                {entry.end === null && (
+                {ongoing ? "Present" : formatMonthYear(entry.end)}
+                {ongoing && (
                   <span className="text-accent"> · {durationLabel(entry.start, null)}</span>
                 )}
               </p>
