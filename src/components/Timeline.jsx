@@ -30,7 +30,14 @@ const FALLBACK_TYPE_STYLE = "border-surface1 text-subtext0";
 const sorted = [...timeline].filter(Boolean).sort((a, b) => (a.start < b.start ? 1 : a.start > b.start ? -1 : 0));
 export default function Timeline() {
   return (
-    <ul className="relative flex-1 flex flex-col">
+    <div className="relative flex-1 min-w-0">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label="Experience and education timeline"
+        className="timeline-scroll max-h-105 overflow-y-auto rounded-md pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <ul className="relative flex flex-col">
       {sorted.length >= 2 && (
         <span aria-hidden="true" className="absolute left-0.5 top-1.5 bottom-1 w-1 bg-surface1" />
       )}
@@ -78,6 +85,12 @@ export default function Timeline() {
           </li>
         );
       })}
-    </ul>
+        </ul>
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-b from-transparent to-base"
+      />
+    </div>
   );
 }

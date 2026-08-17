@@ -27,7 +27,7 @@ export const timeline = [
     description: "Worked in numerous gig jobs for pay in events such as Sunday worships at local church, community concerts and events.",
     type: "work",
   },
-  {
+   {
     id: "Volunteer Musician",
     title: "Guest Musician & Entertainer @ Senior Living Community",
     org: "Asbury Heights",
