@@ -9,12 +9,15 @@ import Resume from "./components/Resume.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import useActiveSection from "./hooks/useActiveSection.js";
+import { ToastProvider } from "./hooks/useToasts.jsx";
+import Toasts from "./components/Toasts.jsx";
 
 export default function App() {
   const { activeSection, sectionIds } = useActiveSection();
 
   return (
-    <main className="min-h-screen bg-base font-sans text-text">
+    <ToastProvider>
+      <main className="min-h-screen bg-base font-sans text-text">
       <Nav activeSection={activeSection} sectionIds={sectionIds} /> 
      <div className="mx-auto w-full md:max-w-[min(72rem,calc(100vw-7.5rem))]">
       <Hero />
@@ -26,6 +29,8 @@ export default function App() {
       <Contact />
       </div>
       <Footer />
-    </main>
+      </main>
+      <Toasts />
+    </ToastProvider>
   );
 }

@@ -1,4 +1,5 @@
 import { Tag } from "lucide-react";
+import { useToast } from "../hooks/useToasts.jsx";
 
 const tagColors = [
   "text-mauve",
@@ -9,7 +10,11 @@ const tagColors = [
   "text-peach",
 ];
 
+const linkClass =
+  "rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none";
+
 export default function ProjectCard({ project }) {
+  const { toast } = useToast();
   return (
     <article className="flex w-full flex-col gap-3 rounded-xl border border-surface1 bg-base p-5 transition-colors hover:border-surface2 md:w-[calc(50%-0.75rem)] lg:w-[calc(33.3333%-1rem)]">
       <h3 className="font-mono text-lg font-semibold text-accent">{project.title}</h3>
@@ -30,7 +35,7 @@ export default function ProjectCard({ project }) {
           href={project.links.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+          className={linkClass}
         >
           Repo
         </a>
@@ -39,7 +44,15 @@ export default function ProjectCard({ project }) {
             href={project.links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md border border-surface1 px-3 py-1 font-mono text-xs text-subtext0 transition-colors hover:border-surface2 hover:text-text  focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+            onClick={
+              project.liveMessage
+                ? (e) => {
+                    e.preventDefault();
+                    toast(project.liveMessage);
+                  }
+                : undefined
+            }
+            className={linkClass}
           >
             Live
           </a>
